@@ -1,0 +1,196 @@
+==============================================================================
+task1_propositional_logic.py
+==============================================================================
+TASK 1: PROPOSITIONAL LOGIC
+Query 1 (valid access conditions imply access): True; models examined=64
+Query 2 (no conditions, no override): False; models examined=1
+Query 3 (inconsistent A and restricted): True; models examined=1024
+Elapsed seconds for three checks: 0.009576
+Forward chaining derives ACCESS: True; rule firings=1
+Prediction: a full truth table checks 2^n assignments; at n=12 this is 4096 assignments.
+n=8: possible assignments=256
+n=12: possible assignments=4096
+n=16: possible assignments=65536
+n=20: possible assignments=1048576
+
+ERROR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+
+==============================================================================
+task2_first_order_logic.py
+==============================================================================
+TASK 2: FIRST-ORDER KNOWLEDGE ENGINEERING
+Can surya register DS201? False | timetable clash
+Can surya register AI301? False | missing prerequisites: DS201
+Can surya register DB202? False | timetable clash
+Can surya register PY101? True | all rules satisfied
+Can surya register UNKNOWN? False | course not offered or unknown
+Can surya register AI301? False | missing prerequisites: DS201
+Can guest register DS201? False | programme restriction, missing prerequisites: PY101, credit limit exceeded
+Can surya register DB202? False | timetable clash
+Flaw 1 (universal conjunction) for DS201: False
+Flaw 2 (missing transitive prerequisite) for AI301: False
+Repaired transitive check for AI301: {'PY101', 'DS201'}
+Vocabulary alternative A: Prereq(course, required_course) uses a compact binary relation.
+Vocabulary alternative B: Requirement(course, requirement_object) is extensible but needs extra facts/rules.
+
+ERROR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+
+==============================================================================
+task3_unification_and_cnf.py
+==============================================================================
+TASK 3: UNIFICATION TESTS
+1. X with alice => {'X': 'alice'}
+2. X with Y => {'X': 'Y'}
+3. ('f', 'X') with ('f', 'bob') => {'X': 'bob'}
+4. ('f', 'X', 'X') with ('f', 'alice', 'alice') => {'X': 'alice'}
+5. ('f', 'X', 'X') with ('f', 'alice', 'bob') => FAIL
+6. ('g', ('f', 'X')) with ('g', ('f', 'carol')) => {'X': 'carol'}
+7. ('f', 'X') with ('g', 'X') => FAIL
+8. alice with bob => FAIL
+9. X with ('f', 'X') => FAIL
+10. ('f', 'X', 'Y') with ('f', 'a', 'b') => {'X': 'a', 'Y': 'b'}
+11. ('h', ('g', 'X')) with ('h', ('g', 'd')) => {'X': 'd'}
+12. ('f', 'X', 'Y') with ('f', 'Y', 'a') => {'X': 'Y', 'Y': 'a'}
+CLAUSE-FORM CONVERSION EXAMPLES
+forall x exists y Likes(x,y) => Likes(x, f(x))
+exists y forall x Helps(y,x) => Helps(c, x)
+forall x (Human(x) -> Mortal(x)) => ~Human(x) OR Mortal(x)
+forall x (P(x) AND Q(x)) => P(x) AND Q(x)
+exists x (Student(x) AND Smart(x)) => Student(sk1) AND Smart(sk1)
+MGU is most general because it imposes only substitutions required for the terms to match.
+Occurs check prevents cyclic substitutions such as X=f(X).
+
+ERROR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+
+==============================================================================
+task4_forward_backward_chaining.py
+==============================================================================
+TASK 4: FORWARD AND BACKWARD CHAINING
+Forward: proved=False; rule firings=4; derived facts=7
+Backward: proved=True; subgoals=7; repeated=0; rule checks=10
+Cyclic KB: proved=False; subgoals=4; repeated/cycle detections=1
+Prediction: backward chaining focuses on one requested goal; forward chaining is useful when many consequences are needed.
+
+ERROR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+
+==============================================================================
+task5_resolution_refutation.py
+==============================================================================
+TASK 5: RESOLUTION REFUTATION
+Strategy=all: empty_clause=False; generated=42; resolution_steps=500; clauses=54
+Strategy=unit: empty_clause=False; generated=23; resolution_steps=500; clauses=37
+Non-entailed example: (False, 1, 4, 3)
+FOL function-symbol growth (bounded demonstration):
+step 0: p(a)
+step 1: p(f(a))
+step 2: p(f(f(a)))
+step 3: p(f(f(f(a))))
+step 4: p(f(f(f(f(a)))))
+step 5: p(f(f(f(f(f(a))))))
+Without a step/depth limit, generated terms can grow indefinitely.
+The empty clause means KB and the negated query are inconsistent; therefore KB entails the query.
+
+ERROR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+
+==============================================================================
+task6_logical_rescue_agent.py
+==============================================================================
+TASK 6: RESCUE GRID AGENT
+Grid 4x4: success=2/20 (10%); hazards entered=18; average moves=4.80
+Grid 6x6: success=0/20 (0%); hazards entered=20; average moves=6.10
+Grid 8x8: success=0/20 (0%); hazards entered=20; average moves=5.25
+Policy: move to a provably safe unvisited neighbour; if none exists, choose the least-risk unvisited neighbour.
+Limitation: the demonstration uses a conservative hazard model; partial observability can still cause failure.
+
+ERROR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+
+==============================================================================
+task7_redesign_validation.py
+==============================================================================
+TASK 7: REDESIGN VALIDATION
+Queries: ['payroll_unreachable', 'ticket_required', 'incident_open', 'unknown_diagnosis', 'payroll_unreachable', 'ticket_required', 'unknown_diagnosis']
+Answers: [True, True, True, False, True, True, False]
+Original no cross-query cache: calls=31; rule checks=69
+Redesigned shared cache: calls=16; rule checks=35; memo hits=5
+Rule-check reduction: 49.3%
+Trade-off: memory is used to store answers; the cache must be cleared when facts/rules change.
+
+ERROR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+
